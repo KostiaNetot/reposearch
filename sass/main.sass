@@ -1,0 +1,46 @@
+@import "settings"
+@import "nomalize"
+
+body
+  background-color: $body-bg
+  color: $mainFont-col
+  font-family: sans-serif
+.container
+  padding: 0 10px
+  margin: 0 auto
+  max-width: 100%
+.row
+  display: flex
+button
+  color: $btnFont-col
+  padding: 7px 10px
+  cursor: pointer
+  transition: all .2s
+
+header
+  background-color: $form-bg
+  .header-wrapper
+    display: flex
+    align-items: center
+    padding: 15px 0
+    margin-bottom: 30px
+    .logo-wrapper
+      width: 40px
+      height: 40px
+      background: url("../img/logo.png") center no-repeat
+      background-size: cover
+    h1
+      padding-left: 12px
+      font-size: 1.5em
+
+.grand-wrapper
+  min-height: 85vh
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+@import "form"
+@import "cards"
+@import "footer"
+@import "modal"
+@import "media"
