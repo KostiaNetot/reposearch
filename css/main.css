@@ -193,7 +193,12 @@ footer {
     width: 100%;
     font-size: 1.2em; }
   .form-wrapper button {
-    padding: 15px; } }
+    padding: 15px; }
+  .form-wrapper #searchInput {
+    font-size: 1.4em;
+    order: -2; }
+  .form-wrapper .search-btn {
+    order: -1; } }
 @media (min-width: 768px) {
   .container {
     max-width: 720px; }
