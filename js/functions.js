@@ -39,7 +39,7 @@ const showData = (obj) => {
 
     const newRepo = setNewRepositoryCard(repoId, repoName, repoOwner, repoUrl, ownerUrl, ava);
     insertItemCard(newRepo);
-    setSearchHeader(foundRepositories.length)
+    setSearchHeader(foundRepositories.length);
 };
 
 const setNewRepositoryCard = (id, name, owner, url, owUrl, ava) => {
@@ -108,4 +108,26 @@ const createCardsfromArr = (arr) => {
   arr.forEach((obj) => {
     insertItemCard(obj);
   });
+};
+
+const setEvent = (cards) => {
+  for (let i = 0; i < cards.length; i++) {
+    let removeBtn = cards[i].querySelector('.remove');
+    removeBtn.addEventListener('click', removeCard);
+  }
+};
+
+function removeCard() {
+  let card = this.closest('.item-card');
+  let cardId = parseInt(card.getAttribute('data-id'));
+  removeObjFromArr(cardId);
+}
+
+const removeObjFromArr = (id) => {
+  if (confirm('Remove item?')) {
+    let removeIndex = foundRepositories.map(function(item) { return item.id; }).indexOf(id);
+    foundRepositories.splice(removeIndex, 1);
+    fillCardsContainer(foundRepositories);
+    localStorage.setItem('found-repos', JSON.stringify(foundRepositories));
+  }
 };
